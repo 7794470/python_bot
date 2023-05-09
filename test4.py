@@ -15,7 +15,7 @@ async def command_start(message: types.Message):
     await message.answer('<em>Hi. Welcome to our Bot</em>', parse_mode="HTML")
 
 
-@dp.message_handler(commands=['give'])
+@dp.message_handler(commands=['bulat'])
 async def command_start(message: types.Message):
     await bot.send_sticker(message.from_user.id, sticker="CAACAgIAAxkBAAEI6T5kWWL6eWdnR9abV08azkaH0lvUpQACfSkAAjU82EgKSbMCS1IxXC8E")
     await message.delete()
