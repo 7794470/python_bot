@@ -53,7 +53,7 @@ async def send_orange(message: types.Message):
 
 
 @dp.message_handler(['random'])
-async def send_random (message: types.Message):
+async def send_random(message: types.Message):
     await bot.send_location(chat_id=message.chat.id,
                             latitude=randrange(1, 100),
                             longitude=randrange(1, 100))
