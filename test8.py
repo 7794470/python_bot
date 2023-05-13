@@ -2,7 +2,6 @@ from aiogram import Bot, Dispatcher, types, executor
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 from random import randrange
 
-
 from config import TOKEN_API
 
 bot = Bot(TOKEN_API)
@@ -39,6 +38,8 @@ async def command_help(message: types.Message):
 async def command_desc(message: types.Message):
     await bot.send_message(chat_id=message.from_user.id,
                            text='Our bot for LoL')
+
+
 # @dp.message_handler()
 # async def send_cat(message: types.Message):
 #     if message.text == '❤️':
@@ -52,7 +53,7 @@ async def send_orange(message: types.Message):
                          photo='https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Ambersweet_oranges.jpg/800px-Ambersweet_oranges.jpg')
 
 
-@dp.message_handler(['random'])
+@dp.message_handler(commands=['random'])
 async def send_random(message: types.Message):
     await bot.send_location(chat_id=message.chat.id,
                             latitude=randrange(1, 100),
