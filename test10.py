@@ -1,8 +1,8 @@
 from aiogram import Bot, Dispatcher, types, executor
-from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from aiogram.types import ReplyKeyboardMarkup, ReplyKeyboardRemove, KeyboardButton
 
 from config import TOKEN_API
+
+from keyboard import kb, ikb
 
 bot = Bot(TOKEN_API)
 dp = Dispatcher(bot)
@@ -10,18 +10,6 @@ dp = Dispatcher(bot)
 
 async def on_startup(_):
     print('Я запустился')
-
-ikb = InlineKeyboardMarkup(row_width=2)
-ib1 = InlineKeyboardButton(text='YouTube',
-                           url='https://www.youtube.com/@Vestnik_Buri')
-ib2 = InlineKeyboardButton(text='Google',
-                           url='google.com')
-ikb.add(ib1).add(ib2)
-
-kb = ReplyKeyboardMarkup(resize_keyboard=True,
-                         one_time_keyboard=True)
-b = KeyboardButton(text="/links")
-kb.add(b)
 
 
 @dp.message_handler(commands=['start'])
